@@ -2,18 +2,25 @@ from django.db import models
 
 # Create your models here.
 
-class Atleta(models.Model):
+class Administrador(models.Model):
 
     nombre = models.CharField(max_length=40)
     apellido= models.CharField(max_length=40)
-    deporte = models.IntegerField()
+    def __str__(self):
+        return self.nombre+" "+str(self.apellido)
 
-class Coach(models.Model):
+class Empleado(models.Model):
     nombre = models.CharField(max_length=40)
     apellido = models.CharField(max_length=40)
-    email = models.EmailField
+    email = models.EmailField()
+    def __str__(self):
+        return self.nombre+" "+str(self.apellido)+"                           "+str(self.email)
 
-class Club(models.Model):
+
+class Cliente(models.Model):
     nombre = models.CharField(max_length=40)
-    division= models.CharField(max_length=40)
-    años= models.IntegerField ()
+    apellido= models.CharField(max_length=40)
+    email = models.EmailField()
+
+    def __str__(self):
+        return self.nombre+" "+str(self.apellido)+"                           "+str(self.email)
